@@ -1,5 +1,11 @@
 # Python from Zero — through games 🌧️
 
+[![All lessons run](https://github.com/rainycommits/python-from-zero/actions/workflows/lessons.yml/badge.svg)](https://github.com/rainycommits/python-from-zero/actions/workflows/lessons.yml)
+[![YouTube](https://img.shields.io/badge/YouTube-@rainycommits-ff3cc8?logo=youtube&logoColor=white)](https://www.youtube.com/@rainycommits)
+[![License: MIT](https://img.shields.io/badge/license-MIT-46e6ff)](LICENSE)
+
+![Python from Zero](.github/banner.png)
+
 Learn Python from your very first line of code to **your own small online RPG**, one lesson at a time.
 No talking, just code, lo-fi music and rain. Videos on YouTube: [@rainycommits](https://www.youtube.com/@rainycommits)
 

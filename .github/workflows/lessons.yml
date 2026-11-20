@@ -1,0 +1,41 @@
+name: All lessons run
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-lessons:
+    runs-on: ubuntu-latest
+    env:
+      SDL_VIDEODRIVER: dummy   # later pygame lessons run without a screen
+      SDL_AUDIODRIVER: dummy
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lesson requirements
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run every lesson and every solution
+        run: |
+          status=0
+          for dir in lesson-*/; do
+            for file in main.py solution.py; do
+              [ -f "$dir$file" ] || continue
+              # a lesson can give answers for input() in ci_input.txt
+              input=/dev/null
+              [ -f "${dir}ci_input.txt" ] && input="$PWD/${dir}ci_input.txt"
+              if (cd "$dir" && timeout 60 python "$file" < "$input" > /dev/null 2> "$GITHUB_WORKSPACE/error.log"); then
+                echo "✓ $dir$file"
+              else
+                echo "✗ $dir$file"
+                cat error.log
+                status=1
+              fi
+            done
+          done
+          exit $status
