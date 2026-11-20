@@ -36,7 +36,7 @@ and at the end it is a project you can show in your portfolio.
 | # | Lesson | You learn | Video |
 |---|---|---|---|
 | 01 | [Your First Program](lesson-01) | `print`, strings, comments, `\n` and `\t`, ASCII art | [watch](https://youtu.be/cumsF-7xYpk) |
-| 02 | Variables | storing values, data types | coming soon |
+| 02 | [Variables](lesson-02) | variables, `int` `float` `str` `bool`, `+=` `-=` | coming soon |
 
 ## Roadmap
 
